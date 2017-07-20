@@ -3,7 +3,7 @@ $(document).ready(function()
    //Array for the autocomplete text box
     var texts =["Matrix", "America","the","of","and","a","to","in","is","you","that","it","he","was","for","on","are","as","with","his","they","I","at","be","this","have","from","or","one","had","by","word","but","not","what","all","were","we","when","your","can","said","there","use","an","each","which","she","do","how","their","if","will","up","other","about","out","many","then","them","these","so","some","her","would","make","like","him","into","time","has","look","two","more","write","go","see","number","no","way","could","people","my","than","first","water","been","call","who","oil","its","now","find","long","down","day","did","get","come","made","may","part", "love", "friend", "family", "father","mother", "computer","school","people", "class", "wife", "husband","bianca", "john", "miake", "michael", "desmond","ceser","chris","forrest", "jeff","jose","tammy","luis","nicholas","omar","tatiana","nate","nick"];
     //Array for the buttons
-    var gifArray =["made","may","part", "love", "friend", "family", "father","mother", "computer","school","people", "class", "wife", "husband"];
+    var topic =["made","may","part", "love", "friend", "family", "father","mother", "computer","school","people", "class", "wife", "husband"];
     $("#autocomplete").autocomplete({
         lookup: texts,
         onSelect: function (option)
@@ -16,11 +16,11 @@ $(document).ready(function()
     //show the array in the buttons
     function show()
     {
-        for (var i = 0; i < gifArray.length; i++) 
+        for (var i = 0; i < topic.length; i++) 
             {
                 var myBtn = $("<button>");
                 myBtn.addClass("btn btn-primary btn-lg MovieBtn");
-                myBtn.text(gifArray[i]);
+                myBtn.text(topic[i]);
                 $("#btnPlace").append(myBtn);
             }
     }
@@ -82,7 +82,7 @@ $(document).ready(function()
     //onClick on the button to add new search button
     $("#addMovie").on("click", function(){
         var textValue = $("#autocomplete").val().trim().toUpperCase();
-        var  n =gifArray.indexOf(textValue);
+        var  n =topic.indexOf(textValue);
         //textbox cannot be empty
         if (textValue==="")
             {
@@ -96,7 +96,7 @@ $(document).ready(function()
         else
             {
              $("#btnPlace").empty();
-             gifArray.push(textValue);
+             topic.push(textValue);
              show();
             }    
     });
